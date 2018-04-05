@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  ea-data-aq:
+    container_name: ehrenamt-data-aquisition
+    image: cismet/ehrenamt-data-aquisition
+    restart: always
+    network_mode: bridge
+    environment:
+      MYVAR: none
+      AGENCY: THENUMBEROFTHEAGENCY
+      KEY: THEKEYOFTHEAGENCY
+      LIMIT: THELIMITOFTHEOFFERS
+    volumes:
+        - ./crontab:/etc/cron/crontab
+        - ./out:/app/out
+    command: --single-run-now-and-crond-forever

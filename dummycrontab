@@ -1,0 +1,2 @@
+* * * * * echo "You should provide your own crontab in a volume at /etc/cron/crontab" >> /dev/stdout 2>&1
+# crontab requires an empty line at the end of the file
