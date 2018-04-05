@@ -102,7 +102,13 @@ fetch("http://www.lachnit-software.de/query/api/MatchingServiceEndpoint.php?&age
         geo_laenge: angebote[i].geo_laenge._text,
       }
       //angs.push(ang_id);
-      angs.push(angebot);
+      if (angebot.geo_breite && angebot.geo_laenge) {
+        angs.push(angebot);
+      }
+      else {
+          console.error("Error during processing of angebot:"+ang_id);
+          console.error(JSON.stringify( angebot , null ,2))
+      }
       //console.log(angebote[i])
     }
     var current = Promise.resolve();
